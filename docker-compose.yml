@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: cicd-frontend-container
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: cicd-backend-container
+    ports:
+      - "5001:5000"
