@@ -47,6 +47,13 @@ stages {
             bat 'docker image prune -f'
         }
     }
+
+    stage('Rollback') {
+        steps {
+            bat 'docker compose down'
+            bat 'docker compose up -d'
+        }
+    }
 }
 
 
