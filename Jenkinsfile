@@ -24,7 +24,7 @@ stages {
     stage('Health Check') {
         steps {
             bat 'curl -f http://localhost:8080'
-            bat 'curl -f http://localhost:5001/health'
+            bat 'curl -f http://127.0.0.1:5001/health'
         }
     }
 }
