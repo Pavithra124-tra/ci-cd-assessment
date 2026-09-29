@@ -41,6 +41,33 @@ pipeline {
                 bat 'curl -f --retry 5 --retry-delay 3 http://127.0.0.1:5001/health'
             }
         }
+
+        stage('Docker Image Cleanup') {
+            steps {
+                bat 'docker image prune -f'
+            }
+        }
     }
 }
 
+⚠️ **Important:** Copy only the Jenkinsfile content. Do **not** copy the ``` markers.
+
+### Now save and push
+
+Run in:
+
+**PowerShell → `C:\Users\DELL\Documents\ci-cd-assessment`**
+
+powershell
+git add Jenkinsfile
+git commit -m "Add Docker image cleanup"
+git push origin main
+```
+
+Then go to **Jenkins → `ci-cd-assessment` → Build Now**.
+
+We want to see:
+
+**Docker Image Cleanup → SUCCESS** ✅
+
+After that, we'll do the **Rollback step**.
