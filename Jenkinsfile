@@ -1,6 +1,7 @@
 pipeline {
 agent any
 
+
 stages {
 
     stage('Checkout') {
@@ -23,8 +24,9 @@ stages {
 
     stage('Health Check') {
         steps {
+            bat 'timeout /t 10 /nobreak >nul'
             bat 'curl -f http://localhost:8080'
-            bat 'curl -f http://127.0.0.1:5001/health'
+            bat 'curl -f --retry 5 --retry-delay 3 http://127.0.0.1:5001/health'
         }
     }
 }
