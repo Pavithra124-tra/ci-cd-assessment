@@ -15,7 +15,7 @@ pipeline {
         BACKEND_IMAGE = "${ECR_REGISTRY}/${BACKEND_REPO}:latest"
 
         ECS_CLUSTER = 'ci-cd-assessment-cluster'
-        FRONTEND_SERVICE = 'ci-cd-frontend-service'
+        FRONTEND_SERVICE = 'ci-cd-assessment-frontend-service'
         BACKEND_SERVICE = 'ci-cd-assessment-backend-service'
 
         ALB_URL = 'http://ci-cd-assessment-alb-1756184904.us-east-1.elb.amazonaws.com'
